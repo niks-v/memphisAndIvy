@@ -1,0 +1,35 @@
+<h1>{{title}}</h1>
+<div class="admin-body">
+    <div id="admin-main">
+        <form action="/admin/submit-login" id="login-form" method="post">
+            <span style="color: red;">{{{incorrect}}}</span>
+            <input id="username" type="text" placeholder="Username" name="un_field"><br>
+            <input id="password" type="password" placeholder="Password" name="pw_field"><br>
+            <input type="hidden" id="token" name="token" value="">
+            <input type="submit" id="submit" value="OK">
+        </form>
+    </div>
+</div>
+
+<script>
+
+    function makeid(length) {
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+
+    let token = makeid(20)
+
+    cookie.set("token", token);
+    document.getElementById("token").value = token
+    
+    /*
+    On page load set value of hidden field to random token
+    Set token cookie to same value as hidden field 
+    */
+</script>

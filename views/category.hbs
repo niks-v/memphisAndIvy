@@ -1,0 +1,25 @@
+<h1 class="title">{{title}}</h1>
+<div id="products">
+{{#each products}}
+    <div class="product-container">
+        <a href="/product/?prod={{this.PID}}">
+            <img src="/images/products/{{this.Image_One}}">
+            <h3>{{this.Display}}</h3>
+            <p>{{this.Description}}</p>
+            <br>
+            <p class="info">${{this.Price}}</p>
+        </a>
+        <button class="big but-small" onclick="cart.add({{this.PID}}, {{this.Price}})">Add to cart</button>
+    </div>
+{{/each}}
+</div>
+<div style="width: 100vw; text-align: center;">
+    <div id="empty">
+        Looks like there's nothing here! Go back to the <a href="../">home page</a> and see what's hot!
+    </div>
+</div>
+<script>
+    if(document.getElementById("products").innerHTML == "\n"){
+        document.getElementById("empty").style.visibility = "visible";
+    }
+</script>

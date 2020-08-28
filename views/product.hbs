@@ -1,0 +1,32 @@
+<div class="product-page">
+    <div id="stack">
+        <div id="image">
+            <figure id="zoom" class="zoo-item" data-zoo-autosize="false"></figure>
+        </div>
+        <div id="small">
+            <img src="/images/products/{{product.Image_One}}" onclick="updateZoom('/images/products/{{product.Image_One}}')">
+            <img src="/images/products/{{product.Image_Two}}" onclick="updateZoom('/images/products/{{product.Image_Two}}')">
+            <img src="/images/products/{{product.Image_Three}}" onclick="updateZoom('/images/products/{{product.Image_Three}}')">
+            <img src="/images/products/{{product.Image_Four}}" onclick="updateZoom('/images/products/{{product.Image_Four}}')">
+        </div>
+    </div>
+    <div style="flex: 2;">
+        <h1 class="title">{{title}}</h1>
+        {{product.DescriptionLarge}}
+        <div id="price">A${{product.Price}}</div><br>
+        <button class="big" onclick="cart.add({{product.PID}}, {{product.Price}})">Add to cart</button>
+        <button class="big" onclick="cart.quickCheckout('{{product.PID}}',{{product.Price}})">Fast checkout A${{product.Price}}</button>
+    </div>
+    <div style="flex: 1; padding-top: 50px; font-size: 10px;">
+        <ul>
+            <li>Product: {{product.Display}}</li>
+            <li>PID: {{product.PID}}</li>
+            <li>Category: {{product.Category}}</li>
+            <li>Price: A${{product.Price}}</li>
+        </ul>
+    </div>
+</div>
+
+<script type='text/javascript'>
+    updateZoom('/images/products/{{product.Image_One}}')
+</script>

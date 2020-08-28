@@ -1,0 +1,32 @@
+
+<div id="index-hero">
+    <div style="height: 80vh;">
+        <div id="eye-grabber">
+            Coastal Meets<br> Country
+        </div>
+    </div>
+</div>
+<div id="categories">
+        <div class="category-header" id="productsIndex">
+            Shop here
+        </div>
+        <div class="index-display">
+            {{#each categories}}
+                <div class="index-cat">
+                    <p>{{this.Display}}</p>
+                    <a href="/category/?cat={{this.URL}}">
+                        <img src="/images/cat/{{this.Image}}">
+                    </a>
+                </div>
+            {{/each}}
+        </div>
+        <!--
+        <div class="category-header">
+            Featured
+        </div>
+        <div class="category-header">
+            Other shit
+        </div>
+        -->
+
+    </div>

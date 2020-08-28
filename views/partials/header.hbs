@@ -1,0 +1,41 @@
+
+<div id="content-wrap">
+  <header>
+    <div id="left">
+      <div class="navbar" style="margin-left: 30px;">
+        <a href="/">HOME</a>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="scrollShop()">SHOP
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content" id="dropdown-menu">
+            {{#each categories}}
+              <a href="/category/?cat={{this.URL}}">{{this.Display}}</a>
+            {{/each}}
+            <!-- dropdown categories will appear here -->
+          </div>
+        </div> 
+        <a href="/about">ABOUT</a>
+      </div>
+    </div>
+    <div id="logo">
+      <a href="/"><img src="/images/m-i-logo.jpg"></a>
+    </div>
+    <div id="right" class="side">
+      <div class="navbar" style="margin-right: 30px; float: right !important;">
+        <a id="searchbar" onclick="toggleSearch(true)">
+          <i class="fa fa-search" id="search-button" aria-hidden="true"></i>
+        </a>
+        <a onclick="cart.view()"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <div id="cart-num" style="display: inline;">0</div> &nbsp;
+        <div id="cart-money-symbol" style="display: inline;">A$</div>
+        <div id="cart-price" style="display: inline;">0.00</div></a>
+      </div>
+    </div>
+   </header>
+  <form id="search_box">
+    <div id="close" onclick="toggleSearch(false)"><i class="fa fa-times" aria-hidden="true"></i></div>
+     <h1>Search</h1>
+    <input type="text" placeholder="I'm shopping for..." autofocus id="search"><button type="submit" id="confirm-search"><i class="fa fa-search"></i></button>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+<h1 class="title">{{title}}</h1>
+
+<div id="cart-page">
+    <div id="container">
+        <div id="products">
+        {{#each products}}
+            <div class="cart-product">
+                <a class="nostyle" href="/product/?prod={{this.PID}}">
+                    <h3>{{this.Display}} (x<span id="amount">{{this.Count}}</span>)</h3>
+                    A$<span id="singlePrice">{{this.Price}}</span>
+                    <p>{{this.Description}}</p>
+                </a>
+                <button id="remove" class="big but-small" onclick="cart.remove({{this.PID}}, {{this.Price}})">Remove 1 from cart</button>
+            </div>
+        {{/each}}
+        <div id="empty">
+            Looks like your cart is empty! Go back to the <a href="../">home page</a> and see what's hot!
+        </div>
+        </div>
+        <div id="total-container">Total: $<span id="total">0</span></div>
+        <button onclick="cart.clear()" class="big">Clear cart</button>
+        <button class="big" onclick="cart.checkout()">Continue to checkout</button>
+    </div>
+</div>
+<script>
+    if(cookie.get(cartCookie) == ("00" || "")){
+        document.getElementById("empty").style.visibility = "visible";
+    } else {
+        document.getElementById("total-container").style.visibility = "visible"
+    }
+</script>
